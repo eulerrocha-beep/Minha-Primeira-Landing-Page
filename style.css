@@ -1,119 +1,168 @@
+﻿/* === RESET E BASE === */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: Arial, Helvetica, sans-serif;
+    -webkit-tap-highlight-color: transparent;
+}
+
+html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+    background-color: #000;
+    overflow-x: hidden;
 }
 
 p {
     color: white;
+    line-height: 1.6;
 }
 
+a {
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
 
+a:hover {
+    color: rgb(36, 108, 214);
+}
+
+/* === BANNER === */
 .banner {
-    background-image: url(./assets/images/banner.png);
+    background-image: linear-gradient(to bottom, rgb(22, 41, 49), rgba(0, 110, 255, 0.5), rgba(41, 85, 228, 0.7), rgba(14, 25, 170, 0.7), rgba(17, 17, 104, 0.7)), url(./assets/images/banner.png);
     background-repeat: no-repeat;
     background-size: cover;
-    background-image: linear-gradient(to bottom,
-            rgb(22, 41, 49),
-            rgba(0, 110, 255, 0.5),
-            rgba(41, 85, 228, 0.7),
-            rgba(14, 25, 170, 0.7),
-            rgba(17, 17, 104, 0.7)), url(./assets/images/banner.png);
+    background-position: center;
+    background-attachment: scroll;
     width: 100%;
     min-height: 60vh;
     border-bottom: solid 3px rgb(32, 119, 170);
+    padding: 2rem 1rem;
 }
 
 .banner-content {
-    border: 2px solid black;
-    background-color: rgba(0, 0, 0, 0.7);
     gap: 1.5rem;
-    padding: 1.5rem;
-
+    padding: 2rem 1rem;
+    max-width: 900px;
+    margin: 0 auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
     text-align: center;
     align-items: center;
+    border-radius: 12px;
 }
 
 .logo {
     display: block;
+    width: 120px;
+    height: 120px;
     margin: 0 auto 1.5rem;
-    height: 160px;
     border-radius: 50%;
     object-fit: cover;
+    filter: drop-shadow(0 0 20px rgba(0, 0, 0, 0.8));
+}
 
-    filter: drop-shadow(0 0 30px rgba(0, 0, 0, 1));
+.logo img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
 }
 
 header div h1 {
     text-transform: uppercase;
-    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-size: clamp(1.5rem, 5vw, 3rem);
     margin: 0 auto 1.5rem;
-    /* centraliza corretamente */
-
+    letter-spacing: 2px;
     background: linear-gradient(to bottom, #00f260, #0575e6);
     -webkit-background-clip: text;
-    color: transparent;
-
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, .7);
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
 header div p {
-    max-width: 740px;
-    font-size: 1.5rem;
+    max-width: 700px;
+    font-size: clamp(0.95rem, 3vw, 1.5rem);
     margin: 0 auto 1.5rem;
-    text-shadow: 3px 3px 2px rgba(0, 0, 0, .7);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    line-height: 1.5;
 }
 
 header div button {
-    display: block;
-    margin: 0 auto 1.5rem;
-
-    padding: 1rem 2rem;
-    font-size: 1.5rem;
-
+    display: inline-block;
+    padding: 0.75rem 2rem;
+    font-size: clamp(0.9rem, 2.5vw, 1.2rem);
     border: solid 2px rgb(36, 108, 214);
     border-radius: 8px;
     background-color: transparent;
     color: rgb(36, 108, 214);
     text-transform: uppercase;
+    font-weight: bold;
     cursor: pointer;
-
-    box-shadow: 2px 2px 10px rgba(0, 0, 0, .5);
-    transition: background-color 0.3s ease, transform 0.2s ease;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    transition: all 0.3s ease;
 }
 
+header div button:hover {
+    background-color: rgb(36, 108, 214);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(36, 108, 214, 0.4);
+}
+
+header div button:active {
+    transform: translateY(0);
+}
+
+/* === MAIN === */
 main {
     border-bottom: solid 3px rgb(32, 119, 170);
     text-align: center;
 }
 
+/* ===== COURSE CONTENT ===== */
 #course-content {
     background-color: black;
-    padding: 4px;
+    padding: 3rem 1rem;
 }
 
 #course-content h2 {
     text-transform: uppercase;
-    font-size: clamp(2rem, 5vw, 3.5rem);
-    margin: 4rem auto 2rem;
+    font-size: clamp(1.5rem, 5vw, 2.8rem);
+    margin: 0 auto 2rem;
     padding: 0 1rem;
-    color: rgb(17, 17, 104);
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, .3);
-
+    letter-spacing: 1px;
     background: linear-gradient(to bottom, #00f260, #0575e6);
     -webkit-background-clip: text;
-    color: transparent;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
 #course-content p {
     max-width: 900px;
-    font-size: 1.2rem;
+    font-size: clamp(0.95rem, 2.5vw, 1.2rem);
     margin: 1.5rem auto;
-    text-shadow: 2px 2px 2px rgba(0, 0, 0, .3);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    padding: 0 1rem;
+    line-height: 1.8;
+}
+
+.modules-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    max-width: 700px;
+    margin: 2rem auto;
+    padding: 0 1rem;
 }
 
 .modules-list .module {
@@ -121,162 +170,448 @@ main {
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    gap: 1rem;
     background-color: rgb(31, 31, 31);
-    box-shadow: inset 0px 0px 30px rgba(0, 0, 0, 1);
-    margin: 30px auto;
-    max-width: 600px;
-
+    box-shadow: inset 0px 0px 20px rgba(0, 0, 0, 0.8);
+    padding: 1rem;
     border: 2px solid rgb(36, 108, 214);
-    border-radius: 50px;
+    border-radius: 30px;
     color: white;
+    font-size: clamp(0.9rem, 2vw, 1.1rem);
+    text-align: left;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
 }
 
-main span {
-    font-size: 1.2rem;
-    margin: 1.5rem;
-    color: rgb(36, 108, 214);
+.modules-list .module:hover {
+    background-color: rgba(36, 108, 214, 0.1);
+    transform: translateX(5px);
 }
+
+.modules-list .module span {
+    font-weight: bold;
+    color: rgb(36, 108, 214);
+    flex-shrink: 0;
+}
+
+/* === TRANSFORM WORLD === */
 #transform-world {
-    border-top:2px solid rgb(36, 108, 214);
+    border-top: 2px solid rgb(36, 108, 214);
     position: relative;
     min-height: 100vh;
     overflow: hidden;
-
-    background:
-        linear-gradient(
-            rgba(0, 0, 0, 0.6),
-            rgba(0, 0, 0, 0.95)
-        ),
-        url(/Minha-Primeira-Landing-Page/assets/images/woman-code.png) center / cover no-repeat fixed;
-
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.95)), url(./assets/images/woman-code.png) center / cover no-repeat scroll;
     display: flex;
     align-items: center;
-    padding-left: 5rem;
+    justify-content: center;
+    padding: 3rem 1rem;
 }
 
 #transform-world::before {
-    content: "";
+    content: '';
     position: absolute;
     inset: 0;
-
-    background:
-        linear-gradient(
-            rgba(0, 0, 0, 0.35),
-            rgba(0, 0, 0, 0.75)
-        ),
-        url(/Minha-Primeira-Landing-Page/assets/images/woman-code.png) center / cover no-repeat;
-
-    /* deixa a imagem mais viva */
-    filter:
-        saturate(1.2)
-        contrast(1.25)
-        brightness(1.15);
-
+    background: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.75)), url(./assets/images/woman-code.png) center / cover no-repeat;
+    filter: saturate(1.2) contrast(1.25) brightness(1.15);
     z-index: -1;
 }
+
+/* alinhamento à esquerda e responsivo: permanece à esquerda e vira coluna em telas menores */
+#transform-world {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 3rem 1rem;
+}
+
 #transform-world p {
-    max-width: 420px;
+    margin: 0;
+    margin-top: 15rem;
+    padding: 1rem;
+    max-width: 400px;
     width: 100%;
-    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-size: clamp(1.5rem, 5vw, 3rem);
     font-weight: bold;
     text-transform: lowercase;
     text-align: left;
-
-    color: rgb(255, 255, 255);
-    text-shadow: 8px 2px 8px rgba(4, 0, 255, 0.3);
-    margin-left: 4rem;
-    padding-left: 5rem;
+    color: #fff;
+    text-shadow: 4px 4px 8px rgba(4, 0, 255, 0.3);
+    position: relative;
+    z-index: 1;
+    line-height: 1.3;
+    box-sizing: border-box;
 }
+
+@media (max-width: 768px) {
+    #transform-world {
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        padding: 2rem 1rem;
+    }
+
+    #transform-world p {
+        margin-top: 15rem;
+        margin: 0 1rem;
+        max-width: 90%;
+        font-size: clamp(1.2rem, 4vw, 2rem);
+    }
+}
+
+@media (max-width: 480px) {
+    #transform-world {
+        padding: 1.5rem 0.75rem;
+    }
+
+    #transform-world p {
+        margin: 0 0.75rem;
+        max-width: 100%;
+        font-size: clamp(1rem, 4vw, 1.5rem);
+        line-height: 1.2;
+    }
+}
+
 
 #professional-challenges {
     background-color: black;
     border-top: 2px solid rgb(36, 108, 214);
-    padding: 4rem 2rem;
-    margin: 0 auto;
+    padding: 3rem 1rem;
 }
 
 #professional-challenges h2 {
     text-transform: uppercase;
-    margin: 0 auto 3rem;
-    font-size: 2rem;
-    max-width: 650px;
+    margin: 0 auto 2rem;
+    font-size: clamp(1.5rem, 5vw, 2.5rem);
+    max-width: 800px;
     width: 100%;
-    color: rgb(17, 17, 104);
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, .3);
-
+    padding: 0 1rem;
+    letter-spacing: 1px;
     background: linear-gradient(to bottom, #00f260, #0575e6);
     -webkit-background-clip: text;
-    color: transparent;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+#professional-challenges img {
+    max-width: 100%;
+    height: auto;
+    margin: 2rem auto;
+    border-radius: 12px;
+    display: block;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
 }
 
 #professional-challenges p {
-    max-width: 800px;
-    font-size: 1rem;
-    padding: 3rem;
-    margin: 0 auto 2rem;
-    text-shadow: 2px 2px 2px rgba(0, 0, 0, .3);
+    max-width: 900px;
+    font-size: clamp(0.9rem, 2.5vw, 1rem);
+    padding: 0 1rem;
+    margin: 2rem auto;
+    line-height: 1.8;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 footer {
-    background: linear-gradient(
-        to top, rgb(7, 36, 49), rgb(0, 0, 0)
-    );
-
-    padding: 3rem 1rem;
-
+    background: linear-gradient(to top, rgb(7, 36, 49), rgb(0, 0, 0));
+    padding: 2rem 1rem;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 0.5rem;
+    gap: 1rem;
+    text-align: center;
 }
 
 footer img {
-    
-    margin: 0;
+    max-width: 150px;
+    height: auto;
+    display: block;
 }
 
 footer p {
-   margin: 0;
+    margin: 0;
+    font-size: clamp(0.9rem, 2vw, 1rem);
 }
 
-@media (max-width: 768px) {
-    #transform-world {
-        padding-left: 0;
-        justify-content: center;
-    }
-
-    #transform-world p {
-        padding: 1rem;
-        text-align: center;
-        font-size: 2rem;
-    }
+footer a {
+    color: rgb(36, 108, 214);
+    font-weight: bold;
+    border-bottom: 1px solid rgb(36, 108, 214);
+    transition: all 0.3s ease;
 }
 
-@media (max-width: 768px) {
-    #transform-world {
-        background-attachment: scroll;
-    }
+footer a:hover {
+    color: #00f260;
+    border-bottom-color: #00f260;
 }
 
+/* ==== RESPONSIVE - TABLET ==== */
 @media (max-width: 768px) {
-
     .banner {
-        min-height: 80vh;
+        min-height: 70vh;
+        padding: 1.5rem 1rem;
+    }
+
+    .banner-content {
+        padding: 1.5rem 1rem;
+        gap: 1rem;
+    }
+
+    .logo {
+        width: 100px;
+        height: 100px;
     }
 
     header div p {
-        font-size: 1.2rem;
+        font-size: clamp(0.9rem, 3vw, 1.2rem);
+    }
+
+    header div button {
+        padding: 0.6rem 1.5rem;
+        font-size: 0.95rem;
+    }
+
+    #course-content {
+        padding: 2rem 1rem;
+    }
+
+    #course-content h2 {
+        margin: 1.5rem auto;
+        font-size: clamp(1.3rem, 4vw, 2rem);
+    }
+
+    #course-content p {
+        font-size: clamp(0.85rem, 2vw, 1rem);
+    }
+
+    .modules-list {
+        gap: 1rem;
+        max-width: 100%;
+    }
+
+    .modules-list .module {
+        padding: 0.8rem;
+        gap: 0.5rem;
+        border-radius: 20px;
+        font-size: clamp(0.8rem, 1.8vw, 0.95rem);
+    }
+
+    #transform-world {
+        min-height: 80vh;
+        padding: 2rem 1rem;
+    }
+
+    #transform-world p {
+        font-size: clamp(1.2rem, 4vw, 2rem);
+        max-width: 90vw;
+    }
+
+    #professional-challenges {
+        padding: 2rem 1rem;
+    }
+
+    #professional-challenges h2 {
+        font-size: clamp(1.3rem, 4vw, 2rem);
+        margin: 0 auto 1.5rem;
+    }
+
+    #professional-challenges img {
+        margin: 1.5rem auto;
+        max-width: 100%;
+    }
+
+    #professional-challenges p {
         padding: 0 1rem;
+        margin: 1rem auto;
+        font-size: clamp(0.85rem, 2vw, 0.95rem);
+    }
+
+    footer {
+        padding: 1.5rem 1rem;
+        gap: 0.75rem;
+    }
+
+    footer img {
+        max-width: 120px;
+    }
+}
+
+/* ===== RESPONSIVE - MOBILE ===== */
+@media (max-width: 480px) {
+    body {
+        font-size: 14px;
+    }
+
+    .banner {
+        min-height: 60vh;
+        padding: 1rem 0.75rem;
+    }
+
+    .banner-content {
+        padding: 1rem 0.75rem;
+        gap: 0.75rem;
+        border-radius: 8px;
+    }
+
+    .logo {
+        width: 90px;
+        height: 90px;
+        margin: 0 auto 1rem;
+    }
+
+    header div h1 {
+        font-size: clamp(1.2rem, 5vw, 2rem);
+        margin: 0 auto 1rem;
+        letter-spacing: 1px;
+    }
+
+    header div p {
+        font-size: clamp(0.8rem, 2.5vw, 1rem);
+        margin: 0 auto 1rem;
+        line-height: 1.4;
+    }
+
+    header div button {
+        padding: 0.5rem 1.2rem;
+        font-size: 0.85rem;
+        margin: 0 auto;
+    }
+
+    #course-content {
+        padding: 1.5rem 0.75rem;
+    }
+
+    #course-content h2 {
+        font-size: clamp(1.1rem, 4vw, 1.8rem);
+        margin: 1rem auto 1.5rem;
+        padding: 0 0.5rem;
+    }
+
+    #course-content p {
+        font-size: 0.85rem;
+        margin: 1rem auto;
+        padding: 0 0.5rem;
+    }
+
+    .modules-list {
+        gap: 0.75rem;
+        padding: 0 0.5rem;
     }
 
     .modules-list .module {
         flex-direction: column;
-        padding: 1rem;
-        border-radius: 20px;
+        padding: 0.75rem;
+        gap: 0.5rem;
+        border-radius: 16px;
+        text-align: center;
+        font-size: 0.8rem;
+    }
+
+    .modules-list .module span {
+        display: block;
+        margin-bottom: 0.25rem;
+    }
+
+    #transform-world {
+        min-height: 70vh;
+        padding: 1.5rem 0.75rem;
+        justify-content: center;
+    }
+
+    #transform-world p {
+        font-size: clamp(1rem, 4vw, 1.5rem);
+        max-width: 95vw;
+        line-height: 1.2;
+    }
+
+    #professional-challenges {
+        padding: 1.5rem 0.75rem;
+    }
+
+    #professional-challenges h2 {
+        font-size: clamp(1.1rem, 4vw, 1.8rem);
+        margin: 0 auto 1.25rem;
+        padding: 0 0.5rem;
+    }
+
+    #professional-challenges img {
+        margin: 1rem auto;
+        max-width: 100%;
+        border-radius: 8px;
     }
 
     #professional-challenges p {
-        padding: 1.5rem;
+        padding: 0 0.5rem;
+        margin: 1rem auto;
+        font-size: 0.8rem;
+        line-height: 1.5;
+    }
+
+    footer {
+        padding: 1rem 0.75rem;
+        gap: 0.5rem;
+    }
+
+    footer img {
+        max-width: 100px;
+    }
+
+    footer p {
+        font-size: 0.8rem;
+    }
+}
+
+/* == RESPONSIVE - EXTRA SMALL === */
+@media (max-width: 320px) {
+    header div h1 {
+        font-size: 1rem;
+        letter-spacing: 0.5px;
+    }
+
+    header div p {
+        font-size: 0.75rem;
+    }
+
+    header div button {
+        padding: 0.4rem 1rem;
+        font-size: 0.75rem;
+    }
+
+    #course-content h2,
+    #professional-challenges h2 {
+        font-size: 1rem;
+    }
+
+    #transform-world p {
         font-size: 0.95rem;
+    }
+}
+
+/* === RESPONSIVE - LANDSCAPE === */
+@media (max-height: 600px) and (orientation: landscape) {
+    .banner {
+        min-height: 80vh;
+    }
+
+    .banner-content {
+        gap: 0.75rem;
+    }
+
+    #transform-world {
+        min-height: 100vh;
+    }
+}
+
+/* === PRINT === */
+@media print {
+    .banner,
+    #transform-world {
+        background-attachment: scroll;
+    }
+
+    button {
+        display: none;
     }
 }
